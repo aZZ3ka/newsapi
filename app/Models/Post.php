@@ -16,6 +16,6 @@ class Post extends Model
      */
     public function comments()
     {
-        return $this->hasMany(Comment::class,'foreign_key');
+        return $this->hasMany(Comment::class, 'foreign_key');
     }
 }

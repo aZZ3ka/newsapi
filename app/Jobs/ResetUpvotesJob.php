@@ -12,10 +12,10 @@ use Illuminate\Queue\SerializesModels;
 
 class ResetUpvotesJob implements ShouldQueue
 {
-    use Dispatchable,
-        InteractsWithQueue,
-        Queueable,
-        SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     /**
      * Create a new job instance.
@@ -35,8 +35,7 @@ class ResetUpvotesJob implements ShouldQueue
     public function handle()
     {
         $posts = Post::all();
-        foreach ($posts as $post)
-        {
+        foreach ($posts as $post) {
             $post->amount_of_upvote = 0;
             $post->save();
         }
